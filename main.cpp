@@ -47,6 +47,7 @@ int main() {
         }
         auto end = high_resolution_clock::now();
         read_vector_time = duration_cast<microseconds>(end - start).count();
+        total_read_vector_time += read_vector_time;//edit 4 adding time to total
 
     // reset file stream to beginning
         infile.clear();
@@ -59,6 +60,7 @@ int main() {
         }
         end = high_resolution_clock::now();
         read_list_time = duration_cast<microseconds>(end - start).count();
+        total_read_list_time += read_list_time;//edit 5 adding time to total
 
     // reset file stream to beginning
         infile.clear();
@@ -70,6 +72,7 @@ int main() {
         }
         end = high_resolution_clock::now();
         read_set_time = duration_cast<microseconds>(end - start).count();
+        total_read_set_time += read_set_time;//edit 6 adding time to total
 
         infile.close();
     
@@ -79,12 +82,14 @@ int main() {
         sort(my_vector.begin(), my_vector.end());
         end = high_resolution_clock::now();
         sort_vector_time = duration_cast<microseconds>(end - start).count();
+        total_sort_vector_time += sort_vector_time; // edit 7 adding time to total
 
     // time List Sort
         start = high_resolution_clock::now();
         my_list.sort();
         end = high_resolution_clock::now();
         sort_list_time = duration_cast<microseconds>(end - start).count();
+        total_sort_list_time += sort_list_time; // edit 8 adding time to total
 
     //set is already sorted
     // race 3 insert
@@ -95,7 +100,7 @@ int main() {
         my_vector.insert(my_vector.begin() + my_vector.size() / 2, test_value);
         end = high_resolution_clock::now();
         insert_vector_time = duration_cast<microseconds>(end - start).count();
-
+        total_insert_vector_time += insert_vector_time; // edit 9 adding time to total
     // time List Insert 
         auto list_it = my_list.begin();
         advance(list_it, my_list.size() / 2);
@@ -103,12 +108,13 @@ int main() {
         my_list.insert(list_it, test_value);
         end = high_resolution_clock::now();
         insert_list_time = duration_cast<microseconds>(end - start).count();// seems too small for microseconds shows 0 sometimes but work normal on nanoseconds
-
+        total_insert_list_time += insert_list_time; // edit 10 adding time to total
     // time Set Insert
         start = high_resolution_clock::now();
         my_set.insert(test_value);
         end = high_resolution_clock::now();
         insert_set_time = duration_cast<microseconds>(end - start).count();
+        total_insert_set_time += insert_set_time; // edit 10 adding time to total
 
     //race 4 delete
     // time Vector Delete
@@ -116,7 +122,7 @@ int main() {
         my_vector.erase(my_vector.begin() + my_vector.size() / 2);
         end = high_resolution_clock::now();
         delete_vector_time = duration_cast<microseconds>(end - start).count();
-
+        total_delete_vector_time += delete_vector_time;// edit 11 adding time to total
     // time List Delete 
         auto list_it_del = my_list.begin();
         advance(list_it_del, my_list.size() / 2);
@@ -124,6 +130,7 @@ int main() {
         my_list.erase(list_it_del);
         end = high_resolution_clock::now();
         delete_list_time = duration_cast<microseconds>(end - start).count();// seems too small for microseconds shows 0 sometimes but work normal on nanoseconds
+        total_delete_list_time += delete_list_time;// edit 12 adding time to total
 
 
     // time Set Delete
@@ -131,6 +138,7 @@ int main() {
         my_set.erase(test_value);
         end = high_resolution_clock::now();
         delete_set_time = duration_cast<microseconds>(end - start).count();
+        total_delete_vector_time += delete_vector_time;// edit 13 adding time to total
 
 
 
