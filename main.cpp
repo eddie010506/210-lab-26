@@ -142,18 +142,21 @@ int main() {
 
 
 
-        cout << left << setw(10) << "Operation"<< setw(10) << "Vector"<< setw(10) << "List"<< setw(10) << "Set" << endl;
-        cout << "----------------------------------------" << endl;
-
-        cout << left << setw(10) << "Read"<< setw(10) << read_vector_time<< setw(10) << read_list_time<< setw(10) << read_set_time << endl;
-
-        cout << left << setw(10) << "Sort"<< setw(10) << sort_vector_time<< setw(10) << sort_list_time<< setw(10) << -1 << endl;
-
-        cout << left << setw(10) << "Insert"<< setw(10) << insert_vector_time<< setw(10) << insert_list_time<< setw(10) << insert_set_time << endl;
-
-        cout << left << setw(10) << "Delete"<< setw(10) << delete_vector_time<< setw(10) << delete_list_time<< setw(10) << delete_set_time << endl;
-        return 0;
+        
     }
+    //moving   print out side the loop
+    cout << "Number of simulations : "<< NUM_SIMULATIONS<< endl;
+    cout << left << setw(10) << "Operation"<< setw(10) << "Vector"<< setw(10) << "List"<< setw(10) << "Set" << endl;
+    cout << "----------------------------------------" << endl;
+
+    cout << left << setw(10) << "Read"<< setw(10) << total_read_vector_time/NUM_SIMULATIONS<< setw(10) << total_read_list_time/NUM_SIMULATIONS<< setw(10) << total_read_set_time/NUM_SIMULATIONS << endl;
+
+    cout << left << setw(10) << "Sort"<< setw(10) << total_sort_vector_time/NUM_SIMULATIONS<< setw(10) << total_sort_list_time/NUM_SIMULATIONS<< setw(10) << -1 << endl;
+
+    cout << left << setw(10) << "Insert"<< setw(10) << total_insert_vector_time/NUM_SIMULATIONS<< setw(10) << total_insert_list_time/NUM_SIMULATIONS<< setw(10) << total_insert_set_time/NUM_SIMULATIONS << endl;
+
+    cout << left << setw(10) << "Delete"<< setw(10) << total_delete_vector_time/NUM_SIMULATIONS<< setw(10) << total_delete_list_time/NUM_SIMULATIONS<< setw(10) << total_delete_set_time/NUM_SIMULATIONS << endl;
+    return 0;
     
 }
 
